@@ -55,6 +55,9 @@ export default function Login() {
           placeholder="you@example.com" value={form.email} onChangeText={(v) => set('email', v)} error={errors.email} />
         <Input label="Password" secureTextEntry autoCapitalize="none" autoComplete="current-password" leftIcon={Lock}
           placeholder="Your password" value={form.password} onChangeText={(v) => set('password', v)} error={errors.password} onSubmitEditing={submit} />
+        <View className="-mt-2 items-end">
+          <Link href="/forgot-password"><Text className="text-sm font-semibold text-brand-600 dark:text-brand-300">Forgot password?</Text></Link>
+        </View>
         <Button size="lg" className="w-full" loading={loading} onPress={submit}>Log in</Button>
         <Text className="text-center text-sm text-slate-500 dark:text-slate-400">
           New here?{' '}

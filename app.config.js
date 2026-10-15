@@ -80,6 +80,12 @@ module.exports = {
             // Android 7.0 (API 24) minimum.
             minSdkVersion: 24,
             usesCleartextTraffic,
+
+            // APK size: build only the ABIs real phones use (drops x86/x86_64,
+            // which are emulator-only) and shrink unused code/resources.
+            buildArchs: ['arm64-v8a', 'armeabi-v7a'],
+            enableMinifyInReleaseBuilds: true,
+            enableShrinkResourcesInReleaseBuilds: true,
           },
         },
       ],

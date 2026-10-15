@@ -19,3 +19,8 @@ export const logout = async () => {
 export const getMe = async (): Promise<User> => (await api.get('/auth/me')).data.user;
 export const updateProfile = async (payload: Partial<Pick<User, 'name' | 'email' | 'avatar' | 'currency'>>): Promise<User> =>
   (await api.patch('/auth/me', payload)).data.user;
+
+export const forgotPassword = async (email: string): Promise<{ message: string }> =>
+  (await api.post('/auth/forgot-password', { email })).data;
+export const resetPassword = async (payload: { email: string; otp: string; password: string }): Promise<{ message: string }> =>
+  (await api.post('/auth/reset-password', payload)).data;
